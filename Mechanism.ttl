@@ -1,0 +1,57 @@
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix props: <https://w3id.org/props#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix beo: <http://pi.pauwel.be/voc/buildingelement#> .
+@prefix hmo: <https://example.org#> .
+@prefix mat: <https://bimerr.iot.linkeddata.es/def/material-properties/> .
+@prefix dot: <https://alhakam.github.io/dot/> .
+@prefix IFCmapping: <https://example.org/IFCmapping#> .
+@prefix fmo: <https://example.org/oop#> .
+
+hmo:ExternalMasonryLayer a hmo:MasonryLayer ;
+    hmo:isMadeOf hmo:MainPattern ;
+    rdfs:comment """Irregular masonry of soft stone, with no presence of brick recourses. """ ;
+    beo:hasGUID "1234example" .
+
+hmo:MainPattern a hmo:Pattern ;
+    hmo:isMadeOf hmo:StoneUnits ;
+    hmo:isMadeOf hmo:MortarJoints .
+
+hmo:StoneUnits a hmo:Unit ;
+    hmo:heightMinValue "10"^^xsd:double ;
+    hmo:heightMaxValue "18"^^xsd:double ;
+    hmo:LengthMinValue "10"^^xsd:double ;
+    hmo:LengthMaxValue "30"^^xsd:double ;
+    hmo:hasMaterial mat:SoftStone .
+
+hmo:MortarJoints a hmo:Joints ; 
+    hmo:horizontality "false"^^xsd:boolean ;
+    hmo:staggered "true"^^xsd:boolean ;
+    hmo:hasMaterial mat:LimeBasedMortar. 
+
+hmo:Wall_417_a a hmo:MasonryWall ;
+    a bot:Element ;
+    a beo:Wall ;
+    mat:hasLayer hmo:ExternalMasonryLayer ;
+    beo:hasGUID "413b2296-9449-4a05-8f3c-f009b9f294dc" .
+
+fmo:Overturning_Wall_417_a a fmo:Overturning ;
+    fmo:hasLocation hmo:Wall_417_a ;
+    fmo:hasCausation fmo:AbsenceOfChains ;
+    fmo:hasCausation fmo:HorizontalThrusts ;
+    fmo:hasSynthom dot:WallDamage_417_a_d1;
+    rdfs:comment """The mechanism manifests itself through the rigid rotation of entire facades or portions of walls with respect to axes that are predominantly 
+    horizontal at the base of them and running through the wall structure stressed by out-of-plane actions.""" .
+
+dot:WallDamage_417_a_d1 a dot:StructuralDamage ;
+    a fmo:Synthom ;
+    bot:elementProperty hmo:Wall_417_a ;
+    beo:hasGUID "1X$OUR9g1CHfK5GgP8di3c"^^xsd:string .
+
+beo:Roof_417 a beo:Roof ;
+    a bot:Element ;
+    a fmo:HorizontalThrusts ;
+    beo:hasGUID "1X$hdhagvdsgd"^^xsd:string . 
