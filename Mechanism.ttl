@@ -5,11 +5,10 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix bot: <https://w3id.org/bot#> .
 @prefix beo: <http://pi.pauwel.be/voc/buildingelement#> .
-@prefix hmo: <https://example.org#> .
+@prefix hmo: <https://github.com/mlaura1996/HistoricMasonryOntology> .
 @prefix mat: <https://bimerr.iot.linkeddata.es/def/material-properties/> .
 @prefix dot: <https://alhakam.github.io/dot/> .
-@prefix IFCmapping: <https://example.org/IFCmapping#> .
-@prefix fmo: <https://example.org/oop#> .
+@prefix fmo: <https://github.com/mlaura1996/FailureMechanismOntology> .
 
 hmo:ExternalMasonryLayer a hmo:MasonryLayer ;
     hmo:isMadeOf hmo:MainPattern ;
