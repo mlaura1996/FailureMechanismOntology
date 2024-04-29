@@ -2,7 +2,7 @@ Failure Mechanism Ontology
 ===================
 This repository contains files on the failure mechanism ontology.
 
-The purpose of this ontology is to represent the vulnerability of unreinforced masonry walls to interfere possible failure mechanisms.
+The purpose of this ontology is to represent the vulnerability of unreinforced masonry walls to interfere the most plausible failure mechanisms.
 
 Authors
 ===================
