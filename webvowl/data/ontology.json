@@ -1,0 +1,1015 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "https://w3id.org/fmo", "https://w3id.org/dot", "https://w3id.org/hmo", "https://pi.pauwel.be/voc/buildingelement", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema" ],
+    "title" : {
+      "en" : "Failure Mechanism Ontology"
+    },
+    "iri" : "https://w3id.org/fmo",
+    "version" : "0.1",
+    "author" : [ "Maria Laura Leonardi, Stefano Cursi, Elena Gigliarelli, José Granja, Daniel Oliveira, Miguel Azenha." ],
+    "description" : {
+      "undefined" : "An ontology to represent the failure mechanism of unreinforced masonry structures"
+    },
+    "comments" : {
+      "undefined" : "Version 0.1"
+    },
+    "other" : {
+      "license" : [ {
+        "identifier" : "license",
+        "language" : "undefined",
+        "value" : "https://creativecommons.org/licenses/by/1.0",
+        "type" : "label"
+      } ],
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "Maria Laura Leonardi, Stefano Cursi, Elena Gigliarelli, José Granja, Daniel Oliveira, Miguel Azenha.",
+        "type" : "label"
+      } ],
+      "preferredNamespacePrexif" : [ {
+        "identifier" : "preferredNamespacePrexif",
+        "language" : "undefined",
+        "value" : "fmo",
+        "type" : "label"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2024-04-29",
+        "type" : "label"
+      } ],
+      "preferredNamespaceUri" : [ {
+        "identifier" : "preferredNamespaceUri",
+        "language" : "undefined",
+        "value" : "https://w3id.org/fmo#",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "0.1",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "en",
+        "value" : "Failure Mechanism Ontology",
+        "type" : "label"
+      } ],
+      "issued" : [ {
+        "identifier" : "issued",
+        "language" : "undefined",
+        "value" : "2024-04-29",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "1",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "2",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "9",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
+    "type" : "owl:Class"
+  }, {
+    "id" : "16",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "22",
+    "type" : "owl:Class"
+  }, {
+    "id" : "11",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "23",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://www.w3.org/2001/XMLSchema#float",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "0",
+    "label" : {
+      "IRI-based" : "float"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#float",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "1",
+    "label" : {
+      "IRI-based" : "float"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#float",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "2",
+    "label" : {
+      "IRI-based" : "float"
+    }
+  }, {
+    "instances" : 0,
+    "union" : [ "4", "5" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "3"
+  }, {
+    "instances" : 0,
+    "union" : [ "4", "5" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "6"
+  }, {
+    "instances" : 0,
+    "union" : [ "4", "5" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "7"
+  }, {
+    "instances" : 0,
+    "union" : [ "4", "5" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "8"
+  }, {
+    "instances" : 0,
+    "union" : [ "4", "5" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "9"
+  }, {
+    "iri" : "https://w3id.org/fmo#InPlaneBehaviour",
+    "baseIri" : "https://w3id.org/fmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "InPlaneBehaviour",
+      "en" : "In Plane Behaviour."
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/fmo#InadequateInPlaneBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A type of (in plane) wall behaviour that is considered inadequate based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."
+      },
+      "labels" : {
+        "IRI-based" : "InadequateInPlaneBehaviour",
+        "en" : "Inadequate in plane behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#AverageInPlaneBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "It indicates a type of behaviour that is within the average range of how masonry walls behave when subjected to in plane load."
+      },
+      "labels" : {
+        "IRI-based" : "AverageInPlaneBehaviour",
+        "en" : "Average in plane behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#GoodInPlaneBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A type of (in plane) wall behaviour that is considered good based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."
+      },
+      "labels" : {
+        "IRI-based" : "GoodInPlaneBehaviour",
+        "en" : "Good in plane behaviour"
+      }
+    } ],
+    "comment" : {
+      "en" : "Indicates the behaviour of a wall subjected to a in plane load."
+    },
+    "id" : "10",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "https://w3id.org/fmo#VerticalBehaviour",
+    "baseIri" : "https://w3id.org/fmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "VerticalBehaviour",
+      "en" : "Vertical Behaviour"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/fmo#InadequateVerticalBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A type of (vertical) wall behaviour that is considered inadequate based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."
+      },
+      "labels" : {
+        "IRI-based" : "InadequateVerticalBehaviour",
+        "en" : "Inadequate Vertical Behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#AverageVerticalBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "It indicates a type of behaviour that is within the average range (based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex) of how masonry walls behave when subjected to a vertical load."
+      },
+      "labels" : {
+        "IRI-based" : "AverageVerticalBehaviour",
+        "en" : "Average Vertical Behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#GoodVerticalBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "The vertical wall behaviour that is considered good based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."
+      },
+      "labels" : {
+        "IRI-based" : "GoodVerticalBehaviour",
+        "en" : "Good vertical behaviour"
+      }
+    } ],
+    "comment" : {
+      "en" : "Indicates the behaviour of a wall subjected to a specific vertical load."
+    },
+    "id" : "17",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "https://w3id.org/dot#StructuralDamage",
+    "baseIri" : "https://w3id.org/dot",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "StructuralDamage",
+      "en" : "Structural Damage"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/fmo#VerticalCrackEntireWallAtIntersection",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A vertical crack occurring at the intersection between walls."
+      },
+      "labels" : {
+        "IRI-based" : "VerticalCrackEntireWallAtIntersection",
+        "undefined" : "Vertical crack near intersection"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#DiagonalAndVerticalCracks",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "undefined" : "Diagonal and vertical cracks in the same wall."
+      },
+      "labels" : {
+        "IRI-based" : "DiagonalAndVerticalCracks",
+        "undefined" : "Diagonal and vertical cracks"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#HorizontalAndVerticalCracks",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "undefined" : "Vertical and horizontal cracks in the same wall."
+      },
+      "labels" : {
+        "IRI-based" : "HorizontalAndVerticalCracks",
+        "undefined" : "Horizontal and vertical cracks"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#DiagonalCrack",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "Crack with diagonal progression."
+      },
+      "labels" : {
+        "IRI-based" : "DiagonalCrack",
+        "undefined" : "Diagonal crack"
+      }
+    } ],
+    "subClasses" : [ "19" ],
+    "comment" : {
+      "en" : "Imported from https://w3id.org/dot.Indicates damage in a hmo:MasonryWall. In the context of failure mechanisms, it helps to understand when a mechanism is present in a wall."
+    },
+    "attributes" : [ "external" ],
+    "id" : "16"
+  }, {
+    "iri" : "https://pi.pauwel.be/voc/buildingelement#Wall",
+    "baseIri" : "https://pi.pauwel.be/voc/buildingelement",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Wall",
+      "undefined" : "Wall"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/fmo#WallFacadeA417_a",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "Wall of the facade in the isolate A, units 417, side a. Castelnuovo di Porto"
+      },
+      "labels" : {
+        "IRI-based" : "WallFacadeA417_a",
+        "en" : "Wall Facade A417_a"
+      }
+    } ],
+    "subClasses" : [ "4" ],
+    "comment" : {
+      "undefined" : "Class imported from https://pi.pauwel.be/voc/buildingelement ontology, to map an IFC wall with a masonry wall, in the ontology-BIM model."
+    },
+    "attributes" : [ "external" ],
+    "id" : "5"
+  }, {
+    "iri" : "https://w3id.org/fmo#Crack",
+    "baseIri" : "https://w3id.org/fmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Crack",
+      "undefined" : "Crack"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/fmo#VerticalCrackEntireWallAtIntersection",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A vertical crack occurring at the intersection between walls."
+      },
+      "labels" : {
+        "IRI-based" : "VerticalCrackEntireWallAtIntersection",
+        "undefined" : "Vertical crack near intersection"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#DiagonalAndVerticalCracks",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "undefined" : "Diagonal and vertical cracks in the same wall."
+      },
+      "labels" : {
+        "IRI-based" : "DiagonalAndVerticalCracks",
+        "undefined" : "Diagonal and vertical cracks"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#DiagonalCrack",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "Crack with diagonal progression."
+      },
+      "labels" : {
+        "IRI-based" : "DiagonalCrack",
+        "undefined" : "Diagonal crack"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#HorizontalAndVerticalCracks",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "undefined" : "Vertical and horizontal cracks in the same wall."
+      },
+      "labels" : {
+        "IRI-based" : "HorizontalAndVerticalCracks",
+        "undefined" : "Horizontal and vertical cracks"
+      }
+    } ],
+    "comment" : {
+      "en" : "A type of damage, which is modelled as a specific subclass of https://w3id.org/dot#StructuralDamage. It may indicate the presence of an ongoing mechanism."
+    },
+    "id" : "19",
+    "superClasses" : [ "16" ]
+  }, {
+    "iri" : "https://w3id.org/hmo#MasonryQualityIndex",
+    "baseIri" : "https://w3id.org/hmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MasonryQualityIndex",
+      "en" : "Masonry Quality Index"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/fmo#MQIWallFacadeA417_a",
+      "baseIri" : "https://w3id.org/fmo",
+      "labels" : {
+        "IRI-based" : "MQIWallFacadeA417_a"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "Class imported from the https://w3id.org/hmo# ontology, to define vertical, in plane and out of plane behaviour of the assessed wall."
+    },
+    "attributes" : [ "external" ],
+    "id" : "22"
+  }, {
+    "iri" : "https://w3id.org/fmo#WallBehaviour",
+    "baseIri" : "https://w3id.org/fmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "WallBehaviour",
+      "en" : "Wall Behaviour"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/fmo#InadequateVerticalBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A type of (vertical) wall behaviour that is considered inadequate based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."
+      },
+      "labels" : {
+        "IRI-based" : "InadequateVerticalBehaviour",
+        "en" : "Inadequate Vertical Behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#GoodOutOfPlaneBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A type of (out of plane) wall behaviour that is considered good based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."
+      },
+      "labels" : {
+        "IRI-based" : "GoodOutOfPlaneBehaviour",
+        "en" : "Good Out Of Plane Behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#AverageOutOfPlaneBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "It indicates a type of behaviour (based on the values of https://w3id.org/hmo#MasonryQualityIndex) that is within the average range of how masonry walls behave when subjected to a out of plane load."
+      },
+      "labels" : {
+        "IRI-based" : "AverageOutOfPlaneBehaviour",
+        "en" : "Average out of plane behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#InadequateInPlaneBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A type of (in plane) wall behaviour that is considered inadequate based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."
+      },
+      "labels" : {
+        "IRI-based" : "InadequateInPlaneBehaviour",
+        "en" : "Inadequate in plane behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#AverageVerticalBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "It indicates a type of behaviour that is within the average range (based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex) of how masonry walls behave when subjected to a vertical load."
+      },
+      "labels" : {
+        "IRI-based" : "AverageVerticalBehaviour",
+        "en" : "Average Vertical Behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#AverageInPlaneBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "It indicates a type of behaviour that is within the average range of how masonry walls behave when subjected to in plane load."
+      },
+      "labels" : {
+        "IRI-based" : "AverageInPlaneBehaviour",
+        "en" : "Average in plane behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#InadequateOutOfPlaneBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A type of (out of plane) wall behaviour that is considered inadequate based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."
+      },
+      "labels" : {
+        "IRI-based" : "InadequateOutOfPlaneBehaviour",
+        "en" : "Inadequate out of plane behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#GoodInPlaneBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A type of (in plane) wall behaviour that is considered good based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."
+      },
+      "labels" : {
+        "IRI-based" : "GoodInPlaneBehaviour",
+        "en" : "Good in plane behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#GoodVerticalBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "The vertical wall behaviour that is considered good based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."
+      },
+      "labels" : {
+        "IRI-based" : "GoodVerticalBehaviour",
+        "en" : "Good vertical behaviour"
+      }
+    } ],
+    "subClasses" : [ "10", "17", "23" ],
+    "comment" : {
+      "en" : "Indicates the behaviour of a wall subjected to a specific load."
+    },
+    "id" : "11"
+  }, {
+    "iri" : "https://w3id.org/hmo#MasonryWall",
+    "baseIri" : "https://w3id.org/hmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MasonryWall",
+      "en" : "Masonry Wall"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/fmo#WallFacadeA417_a",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "Wall of the facade in the isolate A, units 417, side a. Castelnuovo di Porto"
+      },
+      "labels" : {
+        "IRI-based" : "WallFacadeA417_a",
+        "en" : "Wall Facade A417_a"
+      }
+    } ],
+    "comment" : {
+      "en" : "imported from https://w3id.org/hmo, to apply the vulnerability - behaviour - failure mechanism to a hmo:MasonryWall"
+    },
+    "attributes" : [ "external" ],
+    "id" : "4",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "https://w3id.org/fmo#Vulnerability",
+    "baseIri" : "https://w3id.org/fmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Vulnerability",
+      "en" : "Vulnerability"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/fmo#AbsenceOfIntermediateChains",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A vulnerability that consists in the absence of chains in the intermediate floors of the slabs supported by the wall."
+      },
+      "labels" : {
+        "IRI-based" : "AbsenceOfIntermediateChains",
+        "en" : "Absence of intermediate chains"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#InadequateVerticalBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A type of (vertical) wall behaviour that is considered inadequate based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."
+      },
+      "labels" : {
+        "IRI-based" : "InadequateVerticalBehaviour",
+        "en" : "Inadequate Vertical Behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#DeformableFloors",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "undefined" : "A vulnerability consisting of the presence of deformable slabs supported by the wall."
+      },
+      "labels" : {
+        "IRI-based" : "DeformableFloors",
+        "en" : "Deformable Floors"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#AbsenceOfTopCurbstone",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "undefined" : "A vulnerability that consists in the absence of curbstone in the roof supported by the wall."
+      },
+      "labels" : {
+        "IRI-based" : "AbsenceOfTopCurbstone",
+        "undefined" : "Absence of Top Curbstone"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#PresenceOfHorizontalThrust",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A specific vulnerability in the wall consists in the presence of thrusting elements, which facilitate out-of-plane movement."
+      },
+      "labels" : {
+        "IRI-based" : "PresenceOfHorizontalThrust",
+        "en" : "Presence of horizontal thrust"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#InadequateInPlaneBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A type of (in plane) wall behaviour that is considered inadequate based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."
+      },
+      "labels" : {
+        "IRI-based" : "InadequateInPlaneBehaviour",
+        "en" : "Inadequate in plane behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#AbsenceOfTopChains",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A vulnerability that consists in the absence of chains in the roof supported by the wall."
+      },
+      "labels" : {
+        "IRI-based" : "AbsenceOfTopChains",
+        "en" : "Absence of Top Chains"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#OpeningsNearIntersections",
+      "baseIri" : "https://w3id.org/fmo",
+      "labels" : {
+        "IRI-based" : "OpeningsNearIntersections",
+        "en" : "Openings near intersections"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#InadequateOutOfPlaneBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A type of (out of plane) wall behaviour that is considered inadequate based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."
+      },
+      "labels" : {
+        "IRI-based" : "InadequateOutOfPlaneBehaviour",
+        "en" : "Inadequate out of plane behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#AbsenceOfIntermediateCurbstone",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A vulnerability that consists in the absence of curbstones in the intermediate floors of the slabs supported by the wall."
+      },
+      "labels" : {
+        "IRI-based" : "AbsenceOfIntermediateCurbstone",
+        "undefined" : "Absence of intermediate curbstone"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#ExcessiveSlenderness",
+      "baseIri" : "https://w3id.org/fmo",
+      "labels" : {
+        "IRI-based" : "ExcessiveSlenderness",
+        "en" : "A specific vulnerability consisting of excessive slenderness of the wall."
+      }
+    } ],
+    "comment" : {
+      "en" : "It indicates a feature of the wall that can facilitate the occurrence of a mechanism."
+    },
+    "id" : "14"
+  }, {
+    "iri" : "https://w3id.org/fmo#FailureMechanism",
+    "baseIri" : "https://w3id.org/fmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FailureMechanism",
+      "en" : "Failure Mechanism"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/fmo#VerticalBending",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A specific mechanism manifested with the formation a horizontal cylindrical hinge that divides the wall into two blocks and is described by the mutual rotation of the same around this axis by out-of-plane actions."
+      },
+      "labels" : {
+        "IRI-based" : "VerticalBending",
+        "en" : "Vertical Bending"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#InPlaneFailure",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A specific mechanism that do not involve out of plane overturning, but in plane craking/failure."
+      },
+      "labels" : {
+        "IRI-based" : "InPlaneFailure",
+        "en" : "In Plane Failure"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#PartialOverturn",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A specific mechanism consisting of the total rotation of part of a wall out of the plane."
+      },
+      "labels" : {
+        "IRI-based" : "PartialOverturn",
+        "en" : "Partial Overturn"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#HorizontalBending",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A specific mechanism manifested by the expulsion of material from the top zone of the wall and the detachment of wedge-shaped bodies \naccompanied by the formation of oblique and vertical cylindrical hinges due to out-of-plane actions."
+      },
+      "labels" : {
+        "IRI-based" : "HorizontalBending",
+        "en" : "Horizontal Bending"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#TotalOverturn",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A specific mechanism consisting of the total rotation of the entire wall out of the plane."
+      },
+      "labels" : {
+        "IRI-based" : "TotalOverturn",
+        "en" : "Total Overturn"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "Indicates the collapse mechanism expected from a specific hmo:MasonryWall."
+    },
+    "id" : "13"
+  }, {
+    "iri" : "https://w3id.org/fmo#OutOfPlaneBehaviour",
+    "baseIri" : "https://w3id.org/fmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "OutOfPlaneBehaviour",
+      "en" : "Out Of Plane Behaviour"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/fmo#GoodOutOfPlaneBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A type of (out of plane) wall behaviour that is considered good based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."
+      },
+      "labels" : {
+        "IRI-based" : "GoodOutOfPlaneBehaviour",
+        "en" : "Good Out Of Plane Behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#AverageOutOfPlaneBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "It indicates a type of behaviour (based on the values of https://w3id.org/hmo#MasonryQualityIndex) that is within the average range of how masonry walls behave when subjected to a out of plane load."
+      },
+      "labels" : {
+        "IRI-based" : "AverageOutOfPlaneBehaviour",
+        "en" : "Average out of plane behaviour"
+      }
+    }, {
+      "iri" : "https://w3id.org/fmo#InadequateOutOfPlaneBehaviour",
+      "baseIri" : "https://w3id.org/fmo",
+      "comment" : {
+        "en" : "A type of (out of plane) wall behaviour that is considered inadequate based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."
+      },
+      "labels" : {
+        "IRI-based" : "InadequateOutOfPlaneBehaviour",
+        "en" : "Inadequate out of plane behaviour"
+      }
+    } ],
+    "comment" : {
+      "en" : "Indicates the behaviour of a wall subjected to an out of plane load."
+    },
+    "id" : "23",
+    "superClasses" : [ "11" ]
+  } ],
+  "property" : [ {
+    "id" : "12",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "15",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "18",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "20",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "21",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "24",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "25",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "26",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "27",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "28",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "29",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "30",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "31",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "32",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "33",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "34",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "35",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "36",
+    "type" : "rdfs:SubClassOf"
+  } ],
+  "propertyAttribute" : [ {
+    "range" : "14",
+    "domain" : "13",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "12"
+  }, {
+    "iri" : "https://w3id.org/dot#hasDamage",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "16",
+    "label" : {
+      "IRI-based" : "hasDamage",
+      "undefined" : "Has damage"
+    },
+    "domain" : "8",
+    "comment" : {
+      "undefined" : "imported from https://w3id.org/dot ; used to describe damage hmo:MasonryWall, and understand its corration with possible ongoing mechanisms"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "15"
+  }, {
+    "range" : "11",
+    "domain" : "13",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "18"
+  }, {
+    "iri" : "https://w3id.org/dot#hasCausation",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "hasCausation",
+      "undefined" : "Has causation"
+    },
+    "domain" : "16",
+    "comment" : {
+      "undefined" : "It indicates the relationship between a damage and the failure mechanism that causes it."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "20"
+  }, {
+    "iri" : "https://w3id.org/hmo#MQITotalVertical",
+    "baseIri" : "https://w3id.org/hmo",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "MQITotalVertical",
+      "undefined" : "Masonry Quality Index total value for vertical loads"
+    },
+    "domain" : "22",
+    "comment" : {
+      "undefined" : "Defines the total value of MQI for vertical loads. Imported from https://w3id.org/hmo."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "21"
+  }, {
+    "iri" : "https://w3id.org/fmo#hasOccurringMechanism",
+    "baseIri" : "https://w3id.org/fmo",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "hasOccurringMechanism",
+      "undefined" : "Has occurring mechanism"
+    },
+    "domain" : "3",
+    "comment" : {
+      "undefined" : "It relates the masonry wall with the inferred occurred mechanism."
+    },
+    "attributes" : [ "object" ],
+    "id" : "24"
+  }, {
+    "iri" : "https://w3id.org/hmo#MQITotalInPlane",
+    "baseIri" : "https://w3id.org/hmo",
+    "range" : "0",
+    "label" : {
+      "IRI-based" : "MQITotalInPlane",
+      "undefined" : "Masonry Quality Index total value for in plane loads"
+    },
+    "domain" : "22",
+    "comment" : {
+      "undefined" : "Defines the total value of MQI for in plane loads. Imported from https://w3id.org/hmo."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "25"
+  }, {
+    "iri" : "https://w3id.org/fmo#hasVulnerability",
+    "baseIri" : "https://w3id.org/fmo",
+    "range" : "14",
+    "label" : {
+      "IRI-based" : "hasVulnerability",
+      "en" : "Has Vulnerability"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "Relates the masonry wall to the vulnerability that characterised them."
+    },
+    "attributes" : [ "object" ],
+    "id" : "26"
+  }, {
+    "iri" : "https://w3id.org/fmo#FacilitatedBy",
+    "baseIri" : "https://w3id.org/fmo",
+    "range" : "14",
+    "label" : {
+      "IRI-based" : "FacilitatedBy",
+      "undefined" : "Facilitated by"
+    },
+    "domain" : "13",
+    "comment" : {
+      "undefined" : "Indicates the relationship between a failure mechanism and the vulnerability that facilitates it."
+    },
+    "attributes" : [ "object" ],
+    "id" : "27"
+  }, {
+    "iri" : "https://w3id.org/fmo#FacilitatesMechanism",
+    "baseIri" : "https://w3id.org/fmo",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "FacilitatesMechanism",
+      "undefined" : "Facilitates"
+    },
+    "domain" : "14",
+    "comment" : {
+      "undefined" : "A relationship between a vulneability and the specific mechanism that it facilitates."
+    },
+    "attributes" : [ "object" ],
+    "id" : "28"
+  }, {
+    "iri" : "https://w3id.org/hmo#hasMasonryQualityIndex",
+    "baseIri" : "https://w3id.org/hmo",
+    "range" : "22",
+    "label" : {
+      "IRI-based" : "hasMasonryQualityIndex",
+      "undefined" : "Has Masonry Quality Index"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "Imported from the https://w3id.org/hmo ontology, it relates a masonry wall to the value of the masonry quality index."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "29"
+  }, {
+    "range" : "11",
+    "domain" : "23",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "30"
+  }, {
+    "range" : "11",
+    "domain" : "17",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "31"
+  }, {
+    "iri" : "https://w3id.org/fmo#hasBehaviour",
+    "baseIri" : "https://w3id.org/fmo",
+    "range" : "11",
+    "label" : {
+      "IRI-based" : "hasBehaviour",
+      "undefined" : "Has behaviour"
+    },
+    "domain" : "9",
+    "comment" : {
+      "en" : "Indicates the relationship between the masonry wall and its load response behaviour."
+    },
+    "attributes" : [ "object" ],
+    "id" : "32"
+  }, {
+    "range" : "16",
+    "domain" : "19",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "33"
+  }, {
+    "range" : "11",
+    "domain" : "10",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "34"
+  }, {
+    "iri" : "https://w3id.org/hmo#MQITotalOutOfPlane",
+    "baseIri" : "https://w3id.org/hmo",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "MQITotalOutOfPlane",
+      "undefined" : "Masonry Quality Index total value for out of plane loads"
+    },
+    "domain" : "22",
+    "comment" : {
+      "undefined" : "Defines the total value of MQI for out of plane loads. Imported from https://w3id.org/hmo."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "35"
+  }, {
+    "range" : "5",
+    "domain" : "4",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "36"
+  } ]
+}

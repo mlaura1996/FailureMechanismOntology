@@ -1,0 +1,1418 @@
+@prefix : <https://w3id.org/fmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/fmo#> .
+
+<https://w3id.org/fmo> rdf:type owl:Ontology ;
+                        <http://purl.org/dc/terms/creator> "Maria Laura Leonardi, Stefano Cursi, Elena Gigliarelli, José Granja, Daniel Oliveira, Miguel Azenha." ;
+                        <http://purl.org/dc/terms/description> "An ontology to represent the failure mechanism of unreinforced masonry structures" ;
+                        <http://purl.org/dc/terms/issued> "2024-04-29" ;
+                        <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/1.0" ;
+                        <http://purl.org/dc/terms/modified> "2024-04-29" ;
+                        <http://purl.org/dc/terms/title> "Failure Mechanism Ontology"@en ;
+                        rdfs:comment "Version 0.1" ;
+                        owl:versionInfo 0.1 ;
+                        :preferredNamespacePrexif "fmo" ;
+                        :preferredNamespaceUri "https://w3id.org/fmo#" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/fmo#preferredNamespacePrexif
+:preferredNamespacePrexif rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/fmo#preferredNamespaceUri
+:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/dot#hasCausation
+<https://w3id.org/dot#hasCausation> rdf:type owl:ObjectProperty ;
+                                    rdfs:domain <https://w3id.org/dot#StructuralDamage> ;
+                                    rdfs:range :FailureMechanism ;
+                                    rdfs:comment "It indicates the relationship between a damage and the failure mechanism that causes it." ;
+                                    rdfs:label "Has causation" .
+
+
+###  https://w3id.org/dot#hasDamage
+<https://w3id.org/dot#hasDamage> rdf:type owl:ObjectProperty ;
+                                 rdfs:domain <https://pi.pauwel.be/voc/buildingelement#Wall> ,
+                                             <https://w3id.org/hmo#MasonryWall> ;
+                                 rdfs:range <https://w3id.org/dot#StructuralDamage> ;
+                                 rdfs:comment "imported from https://w3id.org/dot ; used to describe damage hmo:MasonryWall, and understand its corration with possible ongoing mechanisms" ;
+                                 rdfs:label "Has damage" .
+
+
+###  https://w3id.org/fmo#FacilitatedBy
+:FacilitatedBy rdf:type owl:ObjectProperty ;
+               rdfs:domain :FailureMechanism ;
+               rdfs:range :Vulnerability ;
+               rdfs:comment "Indicates the relationship between a failure mechanism and the vulnerability that facilitates it." ;
+               rdfs:label "Facilitated by" .
+
+
+###  https://w3id.org/fmo#FacilitatesMechanism
+:FacilitatesMechanism rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Vulnerability ;
+                      rdfs:range :FailureMechanism ;
+                      rdfs:comment "A relationship between a vulneability and the specific mechanism that it facilitates." ;
+                      rdfs:label "Facilitates" .
+
+
+###  https://w3id.org/fmo#hasBehaviour
+:hasBehaviour rdf:type owl:ObjectProperty ;
+              rdfs:domain <https://pi.pauwel.be/voc/buildingelement#Wall> ,
+                          <https://w3id.org/hmo#MasonryWall> ;
+              rdfs:range :WallBehaviour ;
+              rdfs:comment "Indicates the relationship between the masonry wall and its load response behaviour."@en ;
+              rdfs:label "Has behaviour" .
+
+
+###  https://w3id.org/fmo#hasOccurringMechanism
+:hasOccurringMechanism rdf:type owl:ObjectProperty ;
+                       rdfs:domain <https://pi.pauwel.be/voc/buildingelement#Wall> ,
+                                   <https://w3id.org/hmo#MasonryWall> ;
+                       rdfs:range :FailureMechanism ;
+                       rdfs:comment "It relates the masonry wall with the inferred occurred mechanism." ;
+                       rdfs:label "Has occurring mechanism" .
+
+
+###  https://w3id.org/fmo#hasVulnerability
+:hasVulnerability rdf:type owl:ObjectProperty ;
+                  rdfs:domain <https://pi.pauwel.be/voc/buildingelement#Wall> ,
+                              <https://w3id.org/hmo#MasonryWall> ;
+                  rdfs:range :Vulnerability ;
+                  rdfs:comment "Relates the masonry wall to the vulnerability that characterised them." ;
+                  rdfs:label "Has Vulnerability"@en .
+
+
+###  https://w3id.org/hmo#hasMasonryQualityIndex
+<https://w3id.org/hmo#hasMasonryQualityIndex> rdf:type owl:ObjectProperty ;
+                                              rdfs:domain <https://pi.pauwel.be/voc/buildingelement#Wall> ,
+                                                          <https://w3id.org/hmo#MasonryWall> ;
+                                              rdfs:range <https://w3id.org/hmo#MasonryQualityIndex> ;
+                                              rdfs:comment "Imported from the https://w3id.org/hmo ontology, it relates a masonry wall to the value of the masonry quality index." ;
+                                              rdfs:label "Has Masonry Quality Index" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/hmo#MQITotalInPlane
+<https://w3id.org/hmo#MQITotalInPlane> rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain <https://w3id.org/hmo#MasonryQualityIndex> ;
+                                       rdfs:range xsd:float ;
+                                       rdfs:comment "Defines the total value of MQI for in plane loads. Imported from https://w3id.org/hmo." ;
+                                       rdfs:label "Masonry Quality Index total value for in plane loads" .
+
+
+###  https://w3id.org/hmo#MQITotalOutOfPlane
+<https://w3id.org/hmo#MQITotalOutOfPlane> rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain <https://w3id.org/hmo#MasonryQualityIndex> ;
+                                          rdfs:range xsd:float ;
+                                          rdfs:comment "Defines the total value of MQI for out of plane loads. Imported from https://w3id.org/hmo." ;
+                                          rdfs:label "Masonry Quality Index total value for out of plane loads" .
+
+
+###  https://w3id.org/hmo#MQITotalVertical
+<https://w3id.org/hmo#MQITotalVertical> rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain <https://w3id.org/hmo#MasonryQualityIndex> ;
+                                        rdfs:range xsd:float ;
+                                        rdfs:comment "Defines the total value of MQI for vertical loads. Imported from https://w3id.org/hmo." ;
+                                        rdfs:label "Masonry Quality Index total value for vertical loads" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://pi.pauwel.be/voc/buildingelement#Wall
+<https://pi.pauwel.be/voc/buildingelement#Wall> rdf:type owl:Class ;
+                                                rdfs:comment "Class imported from https://pi.pauwel.be/voc/buildingelement ontology, to map an IFC wall with a masonry wall, in the ontology-BIM model." ;
+                                                rdfs:label "Wall" .
+
+
+###  https://w3id.org/dot#StructuralDamage
+<https://w3id.org/dot#StructuralDamage> rdf:type owl:Class ;
+                                        rdfs:comment "Imported from https://w3id.org/dot.Indicates damage in a hmo:MasonryWall. In the context of failure mechanisms, it helps to understand when a mechanism is present in a wall."@en ;
+                                        rdfs:label "Structural Damage"@en .
+
+
+###  https://w3id.org/fmo#Crack
+:Crack rdf:type owl:Class ;
+       rdfs:subClassOf <https://w3id.org/dot#StructuralDamage> ;
+       rdfs:comment "A type of damage, which is modelled as a specific subclass of https://w3id.org/dot#StructuralDamage. It may indicate the presence of an ongoing mechanism."@en ;
+       rdfs:label "Crack" .
+
+
+###  https://w3id.org/fmo#FailureMechanism
+:FailureMechanism rdf:type owl:Class ;
+                  owl:disjointWith :Vulnerability ,
+                                   :WallBehaviour ;
+                  rdfs:comment "Indicates the collapse mechanism expected from a specific hmo:MasonryWall." ;
+                  rdfs:label "Failure Mechanism"@en .
+
+
+###  https://w3id.org/fmo#InPlaneBehaviour
+:InPlaneBehaviour rdf:type owl:Class ;
+                  rdfs:subClassOf :WallBehaviour ;
+                  rdfs:comment "Indicates the behaviour of a wall subjected to a in plane load."@en ;
+                  rdfs:label "In Plane Behaviour."@en .
+
+
+###  https://w3id.org/fmo#OutOfPlaneBehaviour
+:OutOfPlaneBehaviour rdf:type owl:Class ;
+                     rdfs:subClassOf :WallBehaviour ;
+                     rdfs:comment "Indicates the behaviour of a wall subjected to an out of plane load."@en ;
+                     rdfs:label "Out Of Plane Behaviour"@en .
+
+
+###  https://w3id.org/fmo#VerticalBehaviour
+:VerticalBehaviour rdf:type owl:Class ;
+                   rdfs:subClassOf :WallBehaviour ;
+                   rdfs:comment "Indicates the behaviour of a wall subjected to a specific vertical load."@en ;
+                   rdfs:label "Vertical Behaviour"@en .
+
+
+###  https://w3id.org/fmo#Vulnerability
+:Vulnerability rdf:type owl:Class ;
+               rdfs:comment "It indicates a feature of the wall that can facilitate the occurrence of a mechanism."@en ;
+               rdfs:label "Vulnerability"@en .
+
+
+###  https://w3id.org/fmo#WallBehaviour
+:WallBehaviour rdf:type owl:Class ;
+               rdfs:comment "Indicates the behaviour of a wall subjected to a specific load."@en ;
+               rdfs:label "Wall Behaviour"@en .
+
+
+###  https://w3id.org/hmo#MasonryQualityIndex
+<https://w3id.org/hmo#MasonryQualityIndex> rdf:type owl:Class ;
+                                           rdfs:comment "Class imported from the https://w3id.org/hmo# ontology, to define vertical, in plane and out of plane behaviour of the assessed wall." ;
+                                           rdfs:label "Masonry Quality Index"@en .
+
+
+###  https://w3id.org/hmo#MasonryWall
+<https://w3id.org/hmo#MasonryWall> rdf:type owl:Class ;
+                                   rdfs:subClassOf <https://pi.pauwel.be/voc/buildingelement#Wall> ;
+                                   rdfs:comment "imported from https://w3id.org/hmo, to apply the vulnerability - behaviour - failure mechanism to a hmo:MasonryWall"@en ;
+                                   rdfs:label "Masonry Wall"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/fmo#AbsenceOfIntermediateChains
+:AbsenceOfIntermediateChains rdf:type owl:NamedIndividual ,
+                                      :Vulnerability ;
+                             rdfs:comment "A vulnerability that consists in the absence of chains in the intermediate floors of the slabs supported by the wall."@en ;
+                             rdfs:label "Absence of intermediate chains"@en .
+
+
+###  https://w3id.org/fmo#AbsenceOfIntermediateCurbstone
+:AbsenceOfIntermediateCurbstone rdf:type owl:NamedIndividual ,
+                                         :Vulnerability ;
+                                rdfs:comment "A vulnerability that consists in the absence of curbstones in the intermediate floors of the slabs supported by the wall."@en ;
+                                rdfs:label "Absence of intermediate curbstone" .
+
+
+###  https://w3id.org/fmo#AbsenceOfTopChains
+:AbsenceOfTopChains rdf:type owl:NamedIndividual ,
+                             :Vulnerability ;
+                    rdfs:comment "A vulnerability that consists in the absence of chains in the roof supported by the wall."@en ;
+                    rdfs:label "Absence of Top Chains"@en .
+
+
+###  https://w3id.org/fmo#AbsenceOfTopCurbstone
+:AbsenceOfTopCurbstone rdf:type owl:NamedIndividual ,
+                                :Vulnerability ;
+                       rdfs:comment "A vulnerability that consists in the absence of curbstone in the roof supported by the wall." ;
+                       rdfs:label "Absence of Top Curbstone" .
+
+
+###  https://w3id.org/fmo#AverageInPlaneBehaviour
+:AverageInPlaneBehaviour rdf:type owl:NamedIndividual ,
+                                  :InPlaneBehaviour ,
+                                  :WallBehaviour ;
+                         rdfs:comment "It indicates a type of behaviour that is within the average range of how masonry walls behave when subjected to in plane load."@en ;
+                         rdfs:label "Average in plane behaviour"@en .
+
+
+###  https://w3id.org/fmo#AverageOutOfPlaneBehaviour
+:AverageOutOfPlaneBehaviour rdf:type owl:NamedIndividual ,
+                                     :OutOfPlaneBehaviour ,
+                                     :WallBehaviour ;
+                            rdfs:comment "It indicates a type of behaviour (based on the values of https://w3id.org/hmo#MasonryQualityIndex) that is within the average range of how masonry walls behave when subjected to a out of plane load."@en ;
+                            rdfs:label "Average out of plane behaviour"@en .
+
+
+###  https://w3id.org/fmo#AverageVerticalBehaviour
+:AverageVerticalBehaviour rdf:type owl:NamedIndividual ,
+                                   :VerticalBehaviour ,
+                                   :WallBehaviour ;
+                          rdfs:comment "It indicates a type of behaviour that is within the average range (based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex) of how masonry walls behave when subjected to a vertical load."@en ;
+                          rdfs:label "Average Vertical Behaviour"@en .
+
+
+###  https://w3id.org/fmo#DeformableFloors
+:DeformableFloors rdf:type owl:NamedIndividual ,
+                           :Vulnerability ;
+                  rdfs:comment "A vulnerability consisting of the presence of deformable slabs supported by the wall." ;
+                  rdfs:label "Deformable Floors"@en .
+
+
+###  https://w3id.org/fmo#DiagonalAndVerticalCracks
+:DiagonalAndVerticalCracks rdf:type owl:NamedIndividual ,
+                                    <https://w3id.org/dot#StructuralDamage> ,
+                                    :Crack ;
+                           <https://w3id.org/dot#hasCausation> :HorizontalBending ;
+                           rdfs:comment "Diagonal and vertical cracks in the same wall." ;
+                           rdfs:label "Diagonal and vertical cracks" .
+
+
+###  https://w3id.org/fmo#DiagonalCrack
+:DiagonalCrack rdf:type owl:NamedIndividual ,
+                        <https://w3id.org/dot#StructuralDamage> ,
+                        :Crack ;
+               <https://w3id.org/dot#hasCausation> :InPlaneFailure ;
+               rdfs:comment "Crack with diagonal progression."@en ;
+               rdfs:label "Diagonal crack" .
+
+
+###  https://w3id.org/fmo#ExcessiveSlenderness
+:ExcessiveSlenderness rdf:type owl:NamedIndividual ,
+                               :Vulnerability ;
+                      rdfs:label "A specific vulnerability consisting of excessive slenderness of the wall."@en ,
+                                 "Excessive slenderness"@en .
+
+
+###  https://w3id.org/fmo#GoodInPlaneBehaviour
+:GoodInPlaneBehaviour rdf:type owl:NamedIndividual ,
+                               :InPlaneBehaviour ,
+                               :WallBehaviour ;
+                      rdfs:comment "A type of (in plane) wall behaviour that is considered good based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."@en ;
+                      rdfs:label "Good in plane behaviour"@en .
+
+
+###  https://w3id.org/fmo#GoodOutOfPlaneBehaviour
+:GoodOutOfPlaneBehaviour rdf:type owl:NamedIndividual ,
+                                  :OutOfPlaneBehaviour ,
+                                  :WallBehaviour ;
+                         rdfs:comment "A type of (out of plane) wall behaviour that is considered good based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."@en ;
+                         rdfs:label "Good Out Of Plane Behaviour"@en .
+
+
+###  https://w3id.org/fmo#GoodVerticalBehaviour
+:GoodVerticalBehaviour rdf:type owl:NamedIndividual ,
+                                :VerticalBehaviour ,
+                                :WallBehaviour ;
+                       rdfs:comment "The vertical wall behaviour that is considered good based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."@en ;
+                       rdfs:label "Good vertical behaviour"@en .
+
+
+###  https://w3id.org/fmo#HorizontalAndVerticalCracks
+:HorizontalAndVerticalCracks rdf:type owl:NamedIndividual ,
+                                      <https://w3id.org/dot#StructuralDamage> ,
+                                      :Crack ;
+                             <https://w3id.org/dot#hasCausation> :VerticalBending ;
+                             rdfs:comment "Vertical and horizontal cracks in the same wall." ;
+                             rdfs:label "Horizontal and vertical cracks" .
+
+
+###  https://w3id.org/fmo#HorizontalBending
+:HorizontalBending rdf:type owl:NamedIndividual ,
+                            :FailureMechanism ;
+                   rdfs:comment """A specific mechanism manifested by the expulsion of material from the top zone of the wall and the detachment of wedge-shaped bodies 
+accompanied by the formation of oblique and vertical cylindrical hinges due to out-of-plane actions."""@en ;
+                   rdfs:label "Horizontal Bending"@en .
+
+
+###  https://w3id.org/fmo#InPlaneFailure
+:InPlaneFailure rdf:type owl:NamedIndividual ,
+                         :FailureMechanism ;
+                rdfs:comment "A specific mechanism that do not involve out of plane overturning, but in plane craking/failure."@en ;
+                rdfs:label "In Plane Failure"@en .
+
+
+###  https://w3id.org/fmo#InadequateInPlaneBehaviour
+:InadequateInPlaneBehaviour rdf:type owl:NamedIndividual ,
+                                     :InPlaneBehaviour ,
+                                     :Vulnerability ,
+                                     :WallBehaviour ;
+                            rdfs:comment "A type of (in plane) wall behaviour that is considered inadequate based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."@en ;
+                            rdfs:label "Inadequate in plane behaviour"@en .
+
+
+###  https://w3id.org/fmo#InadequateOutOfPlaneBehaviour
+:InadequateOutOfPlaneBehaviour rdf:type owl:NamedIndividual ,
+                                        :OutOfPlaneBehaviour ,
+                                        :Vulnerability ,
+                                        :WallBehaviour ;
+                               rdfs:comment "A type of (out of plane) wall behaviour that is considered inadequate based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."@en ;
+                               rdfs:label "Inadequate out of plane behaviour"@en .
+
+
+###  https://w3id.org/fmo#InadequateVerticalBehaviour
+:InadequateVerticalBehaviour rdf:type owl:NamedIndividual ,
+                                      :VerticalBehaviour ,
+                                      :Vulnerability ,
+                                      :WallBehaviour ;
+                             rdfs:comment "A type of (vertical) wall behaviour that is considered inadequate based on the values assigned to https://w3id.org/hmo#MasonryQualityIndex."@en ;
+                             rdfs:label "Inadequate Vertical Behaviour"@en .
+
+
+###  https://w3id.org/fmo#MQIWallFacadeA417_a
+:MQIWallFacadeA417_a rdf:type owl:NamedIndividual ,
+                              <https://w3id.org/hmo#MasonryQualityIndex> ;
+                     <https://w3id.org/hmo#MQITotalInPlane> 4.55 ,
+                                                            4.90 ;
+                     <https://w3id.org/hmo#MQITotalOutOfPlane> 3.15 .
+
+
+###  https://w3id.org/fmo#OpeningsNearIntersections
+:OpeningsNearIntersections rdf:type owl:NamedIndividual ,
+                                    :Vulnerability ;
+                           rdfs:label "Openings near intersections"@en .
+
+
+###  https://w3id.org/fmo#PartialOverturn
+:PartialOverturn rdf:type owl:NamedIndividual ,
+                          :FailureMechanism ;
+                 rdfs:comment "A specific mechanism consisting of the total rotation of part of a wall out of the plane."@en ;
+                 rdfs:label "Partial Overturn"@en .
+
+
+###  https://w3id.org/fmo#PresenceOfHorizontalThrust
+:PresenceOfHorizontalThrust rdf:type owl:NamedIndividual ,
+                                     :Vulnerability ;
+                            rdfs:comment "A specific vulnerability in the wall consists in the presence of thrusting elements, which facilitate out-of-plane movement."@en ;
+                            rdfs:label "Presence of horizontal thrust"@en .
+
+
+###  https://w3id.org/fmo#TotalOverturn
+:TotalOverturn rdf:type owl:NamedIndividual ,
+                        :FailureMechanism ;
+               rdfs:comment "A specific mechanism consisting of the total rotation of the entire wall out of the plane."@en ;
+               rdfs:label "Total Overturn"@en .
+
+
+###  https://w3id.org/fmo#VerticalBending
+:VerticalBending rdf:type owl:NamedIndividual ,
+                          :FailureMechanism ;
+                 rdfs:comment "A specific mechanism manifested with the formation a horizontal cylindrical hinge that divides the wall into two blocks and is described by the mutual rotation of the same around this axis by out-of-plane actions."@en ;
+                 rdfs:label "Vertical Bending"@en .
+
+
+###  https://w3id.org/fmo#VerticalCrackEntireWallAtIntersection
+:VerticalCrackEntireWallAtIntersection rdf:type owl:NamedIndividual ,
+                                                <https://w3id.org/dot#StructuralDamage> ,
+                                                :Crack ;
+                                       <https://w3id.org/dot#hasCausation> :TotalOverturn ;
+                                       rdfs:comment "A vertical crack occurring at the intersection between walls."@en ;
+                                       rdfs:label "Vertical crack near intersection" .
+
+
+###  https://w3id.org/fmo#WallFacadeA417_a
+:WallFacadeA417_a rdf:type owl:NamedIndividual ,
+                           <https://pi.pauwel.be/voc/buildingelement#Wall> ,
+                           <https://w3id.org/hmo#MasonryWall> ;
+                  <https://w3id.org/dot#hasDamage> :VerticalCrackEntireWallAtIntersection ;
+                  :hasBehaviour :AverageInPlaneBehaviour ,
+                                :InadequateOutOfPlaneBehaviour ;
+                  :hasOccurringMechanism :TotalOverturn ;
+                  :hasVulnerability :InadequateOutOfPlaneBehaviour ;
+                  <https://w3id.org/hmo#hasMasonryQualityIndex> :MQIWallFacadeA417_a ;
+                  rdfs:comment "Wall of the facade in the isolate A, units 417, side a. Castelnuovo di Porto"@en ;
+                  rdfs:label "Wall Facade A417_a"@en .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+:wl rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:MQI rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:MQIv rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:dmg rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:mcn rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a Masonry Wall has a Masonry Quality Index, which has a Masonry Quality Index Total In Plane Value less or equal than 10 and greater than 5, than the Masonry Wall has an good in plane behaviour" ;
+   rdfs:label "Good in plane behaviour" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <https://w3id.org/hmo#MasonryWall> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#hasMasonryQualityIndex> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :MQI
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#MQITotalInPlane> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :MQI ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :MQIv
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :MQIv ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 10 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first :MQIv ;
+                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                           rdf:first 5 ;
+                                                                                                                                                           rdf:rest rdf:nil
+                                                                                                                                                         ]
+                                                                                                                                              ]
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBehaviour ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :GoodInPlaneBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a Masonry Wall has a Masonry Quality Index, which has a Masonry Quality Index Total vertical value less or equal than 10 and greater than 5, than the Masonry Wall has a good vertical behaviour" ;
+   rdfs:label "Good vertical behaviour" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <https://w3id.org/hmo#MasonryWall> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#hasMasonryQualityIndex> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :MQI
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#MQITotalVertical> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :MQI ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :MQIv
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :MQIv ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 10 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first :MQIv ;
+                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                           rdf:first 5 ;
+                                                                                                                                                           rdf:rest rdf:nil
+                                                                                                                                                         ]
+                                                                                                                                              ]
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBehaviour ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :GoodVerticalBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a Masonry Wall has a Masonry Quality Index, which has a Masonry Quality Index Total Vertical value less or equal than 5 and greater than 2.5, than the Masonry Wall has an average vertical behaviour" ;
+   rdfs:label "Average vertical Behaviour" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <https://w3id.org/hmo#MasonryWall> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#hasMasonryQualityIndex> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :MQI
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#MQITotalVertical> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :MQI ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :MQIv
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :MQIv ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 5 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first :MQIv ;
+                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                           rdf:first 2.5 ;
+                                                                                                                                                           rdf:rest rdf:nil
+                                                                                                                                                         ]
+                                                                                                                                              ]
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBehaviour ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :AverageVerticalBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a Masonry Wall has a Masonry Quality Index, which has a Masonry Quality Index Total vertical value less or equal than 2.5 and greater or equal than 0, than the Masonry Wall has an inadequate vertical behaviour" ;
+   rdfs:label "Inadequate vertical behaviour" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <https://w3id.org/hmo#MasonryWall> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#hasMasonryQualityIndex> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :MQI
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#MQITotalVertical> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :MQI ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :MQIv
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :MQIv ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first "2.5" ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first :MQIv ;
+                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                           rdf:first "0" ;
+                                                                                                                                                           rdf:rest rdf:nil
+                                                                                                                                                         ]
+                                                                                                                                              ]
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBehaviour ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :InadequateVerticalBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a wall has a damage, and the damage is caused by a specific mechanism, than the wall has a ongoing mechanism" ;
+   rdfs:label "Mechanism and damage" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/dot#hasDamage> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :dmg
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/dot#hasCausation> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :dmg ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :mcn
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOccurringMechanism ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :mcn
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a masonry wall has a vulnerability that is ‘absence of intermediate chains’ and has a vulnerability that is ‘absence of top chains’, then it has an occurring mechanism that is ‘total overturn'." ;
+   rdfs:label "Total overtun - chains" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :AbsenceOfIntermediateChains
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :AbsenceOfTopChains
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOccurringMechanism ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :TotalOverturn
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a masonry wall has a vulnerability that is ‘absence of intermediate chains' and has a vulnerability that is ‘absence of top curbstone', then it has an occurring mechanism that is ‘total overturn." ;
+   rdfs:label "Total overturn chain - curbston" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :AbsenceOfIntermediateChains
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :AbsenceOfTopCurbstone
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOccurringMechanism ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :TotalOverturn
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a masonry wall has a vulnerability that is ‘absence of intermediate curbstone’ and has a vulnerability that is ‘absence of top chains', then it has an occurring mechanism that is ‘total overturn." ;
+   rdfs:label "Total overturn - curstone -chain" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :AbsenceOfIntermediateCurbstone
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :AbsenceOfTopChains
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOccurringMechanism ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :TotalOverturn
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a Masonry Wall has a Masonry Quality Index, which has a Masonry Quality Index Total in plane value less or equal than 3 and greater or equal than 0, than the Masonry Wall has an inadequate In plane behaviour" ;
+   rdfs:label "Inadequate in plane behavior" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <https://w3id.org/hmo#MasonryWall> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#hasMasonryQualityIndex> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :MQI
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#MQITotalInPlane> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :MQI ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :MQIv
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :MQIv ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 3 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first :MQIv ;
+                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                           rdf:first 0 ;
+                                                                                                                                                           rdf:rest rdf:nil
+                                                                                                                                                         ]
+                                                                                                                                              ]
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBehaviour ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :InadequateInPlaneBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a masonry wall has a vulnerability that is ‘absence of intermediate curbstone’ and has a vulnerability that is ‘absence of top curbstone’, then it has an occurring mechanism that is ‘total overturn." ;
+   rdfs:label "Total overturn - curbstone" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :AbsenceOfIntermediateCurbstone
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :AbsenceOfTopCurbstone
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOccurringMechanism ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :TotalOverturn
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a masonry wall has a vulnerability that is ‘absence of top chains’, then it has an occurring mechanism that is ‘partial overturn." ;
+   rdfs:label "Partial overturn - chains" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :AbsenceOfTopChains
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOccurringMechanism ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :PartialOverturn
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a masonry wall has a vulnerability that is ‘absence of top curbstone, then it has an occurring mechanism that is ‘partial overturn." ;
+   rdfs:label "Partial overturn - curbstone" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :AbsenceOfTopCurbstone
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOccurringMechanism ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :PartialOverturn
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a masonry wall has a vulnerability that is ‘excessive slenderness’ and a vulnerability that is ‘absence of top chains’ and a vulnerability that is ‘presence of horizontal thrusts’ and a behaviour that is ‘inadequate out of plane behaviour’, then it has an occurring mechanism that is ‘horizontal bending’." ;
+   rdfs:label "Horizontal bending - absence of top chains" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :ExcessiveSlenderness
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :AbsenceOfTopChains
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :PresenceOfHorizontalThrust
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBehaviour ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :InadequateOutOfPlaneBehaviour
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOccurringMechanism ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :HorizontalBending
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a masonry wall has a vulnerability that is ‘excessive slenderness’ and a vulnerability that is ‘absence of top curbstone’ and a vulnerability that is ‘presence of horizontal thrusts’ and a behaviour that is ‘inadequate out of plane behaviour’, then it has an occurring mechanism that is ‘horizontal bending’." ;
+   rdfs:label "Horizontal bending - absence of top curbstone" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :ExcessiveSlenderness
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :AbsenceOfTopCurbstone
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :PresenceOfHorizontalThrust
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBehaviour ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :InadequateOutOfPlaneBehaviour
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOccurringMechanism ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :HorizontalBending
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a masonry wall has a vulnerability that is ‘excessive slenderness’  and has a vulnerability that is ‘presence of horizontal thrusts’, and has a vulnerability that is ‘deformable floor, and it has a behaviour that is ‘inadequate out of plane behaviour’, then it has an occurring mechanism that is ‘vertical bending’." ;
+   rdfs:label "Vertical bending" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :ExcessiveSlenderness
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :PresenceOfHorizontalThrust
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :DeformableFloors
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBehaviour ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :InadequateOutOfPlaneBehaviour
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOccurringMechanism ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :VerticalBending
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a masonry wall has a vulnerability that is ‘inadequate in plane behaviour’, then it has a vulnerability that is ‘inadequate in plane behaviour’." ;
+   rdfs:label "Inadequate in plane behaviour vulnerability" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBehaviour ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :InadequateInPlaneBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :InadequateInPlaneBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a masonry wall has a vulnerability that is ‘inadequate in plane behaviour’, than it has an occurring mechanism that is ‘in plane failure’." ;
+   rdfs:label "In plane failure" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :InadequateInPlaneBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOccurringMechanism ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :InPlaneFailure
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a masonry wall has a vulnerability that is ‘inadequate out of plane behaviour’, then it has an occurring mechanism that is ‘out of plane failure’." ;
+   rdfs:label "Inadequate Out Of Plane Behaviour Vulnerability" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBehaviour ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :InadequateOutOfPlaneBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :InadequateOutOfPlaneBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a masonry wall has a behaviour that is ‘inadequate vertical behaviour’, then it has a vulnerability that is ‘inadequate vertical behaviour’." ;
+   rdfs:label "Inadequate Vertical Behaviour Vulnerability" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBehaviour ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :InadequateVerticalBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVulnerability ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :InadequateVerticalBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a Masonry Wall has a Masonry Quality Index, which has a Masonry Quality Index Total In Plane Value less or equal than 5  and greater than 3, than the Masonry Wall has an average in Plane behaviour" ;
+   rdfs:label "Average in plane behaviour" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <https://w3id.org/hmo#MasonryWall> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#hasMasonryQualityIndex> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :MQI
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#MQITotalInPlane> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :MQI ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :MQIv
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :MQIv ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 5 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first :MQIv ;
+                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                           rdf:first 3 ;
+                                                                                                                                                           rdf:rest rdf:nil
+                                                                                                                                                         ]
+                                                                                                                                              ]
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBehaviour ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :AverageInPlaneBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a Masonry Wall has a Masonry Quality Index, which has a Masonry Quality Index Total out of plane value less or equal than 10 and greater than 7, than the Masonry Wall has an good out of plane behaviour" ;
+   rdfs:label "Good out of plane behaviour" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <https://w3id.org/hmo#MasonryWall> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#hasMasonryQualityIndex> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :MQI
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#MQITotalOutOfPlane> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :MQI ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :MQIv
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :MQIv ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 10 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first :MQIv ;
+                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                           rdf:first 7 ;
+                                                                                                                                                           rdf:rest rdf:nil
+                                                                                                                                                         ]
+                                                                                                                                              ]
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBehaviour ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :GoodOutOfPlaneBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a Masonry Wall has a Masonry Quality Index, which has a Masonry Quality Index Total out of plane value less or equal than 4 and greater or equal than 0, than the Masonry Wall has an inadequate out of plane behaviour" ;
+   rdfs:label "Inadequate out of plane behaviour" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <https://w3id.org/hmo#MasonryWall> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#hasMasonryQualityIndex> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :MQI
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#MQITotalOutOfPlane> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :MQI ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :MQIv
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :MQIv ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 4 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first :MQIv ;
+                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                           rdf:first 0 ;
+                                                                                                                                                           rdf:rest rdf:nil
+                                                                                                                                                         ]
+                                                                                                                                              ]
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBehaviour ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :InadequateOutOfPlaneBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a Masonry Wall has a Masonry Quality Index, which has a Masonry Quality Index Total Out Of Plane Value less or equal than 7 and greater than 4, than the Masonry Wall has an average out of Plane behaviour" ;
+   rdfs:label "Average out of plane behaviour" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <https://w3id.org/hmo#MasonryWall> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#hasMasonryQualityIndex> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :MQI
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://w3id.org/hmo#MQITotalOutOfPlane> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :MQI ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :MQIv
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :MQIv ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 7 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first :MQIv ;
+                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                           rdf:first 4 ;
+                                                                                                                                                           rdf:rest rdf:nil
+                                                                                                                                                         ]
+                                                                                                                                              ]
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBehaviour ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :wl ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :AverageOutOfPlaneBehaviour
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
