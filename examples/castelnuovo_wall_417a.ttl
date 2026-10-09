@@ -1,0 +1,25 @@
+@prefix fmo: <https://w3id.org/fmo#> .
+@prefix ns1: <https://w3id.org/hmo#> .
+@prefix ns2: <https://w3id.org/dot#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fmo:WallFacadeA417_a a owl:NamedIndividual,
+        <https://pi.pauwel.be/voc/buildingelement#Wall>,
+        ns1:MasonryWall ;
+    rdfs:label "Wall Facade A417_a"@en ;
+    rdfs:comment "Wall of the facade in the isolate A, units 417, side a. Castelnuovo di Porto"@en ;
+    ns2:hasDamage fmo:VerticalCrackEntireWallAtIntersection ;
+    fmo:hasBehaviour fmo:AverageInPlaneBehaviour,
+        fmo:InadequateOutOfPlaneBehaviour ;
+    fmo:hasOccurringMechanism fmo:TotalOverturn ;
+    fmo:hasVulnerability fmo:InadequateOutOfPlaneBehaviour ;
+    ns1:hasMasonryQualityIndex fmo:MQIWallFacadeA417_a .
+
+fmo:MQIWallFacadeA417_a a owl:NamedIndividual,
+        ns1:MasonryQualityIndex ;
+    ns1:MQITotalInPlane 4.55,
+        4.90 ;
+    ns1:MQITotalOutOfPlane 3.15 .
+
