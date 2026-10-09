@@ -1,6 +1,11 @@
 # Changelog
 
-## Unreleased — rules made executable together with HMO
+## 0.2 (2026-10-09) — rules made executable together with HMO
+
+Version metadata: `owl:versionInfo` 0.2, `dcterms:modified` 2026-10-09. The
+namespace annotations `fmo:preferredNamespacePrexif` and
+`fmo:preferredNamespaceUri` are replaced by the standard
+`vann:preferredNamespacePrefix` and `vann:preferredNamespaceUri`.
 
 Run with Pellet together with the Historic Masonry Ontology on the
 Castelnuovo di Porto case study (seven masonry walls), the ontology as
